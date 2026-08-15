@@ -31,7 +31,7 @@ The application works completely offline and provides a minimal, responsive inte
 
 ## # Download App
 
-Download the latest Android APK:
+[Download the latest Android APK:](https://github.com/dineshsinghdhami/random-quote-generator-flutter/releases/tag/v1.0.0)
 
 > **Note:** Since the application is distributed as an APK outside the Google Play Store, Android may ask you to allow installation from your browser or file manager.
 
