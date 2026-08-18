@@ -93,152 +93,198 @@ class _QuoteHomePageState extends State<QuoteHomePage> {
     final currentQuote = quotes[currentQuoteIndex];
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF7F5FF),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 24,
-            vertical: 20,
-          ),
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
-
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.auto_awesome,
-                    color: Color(0xFF6C4DF6),
-                    size: 28,
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    'Quote of the Moment',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF27233A),
-                    ),
-                  ),
-                ],
-              ),
-
-              const Spacer(),
-
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 28,
-                  vertical: 36,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(28),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.08),
-                      blurRadius: 30,
-                      offset: const Offset(0, 12),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Container(
-                      width: 64,
-                      height: 64,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFF0ECFF),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.format_quote_rounded,
-                        color: Color(0xFF6C4DF6),
-                        size: 36,
-                      ),
-                    ),
-
-                    const SizedBox(height: 28),
-
-                    AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 350),
-                      child: Text(
-                        '"${currentQuote['quote']}"',
-                        key: ValueKey(currentQuoteIndex),
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          height: 1.5,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF27233A),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 24),
-
-                    AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 350),
-                      child: Text(
-                        '— ${currentQuote['author']}',
-                        key: ValueKey(
-                          '${currentQuoteIndex}_author',
-                        ),
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500,
-                          fontStyle: FontStyle.italic,
-                          color: Color(0xFF777184),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const Spacer(),
-
-              SizedBox(
-                width: double.infinity,
-                height: 58,
-                child: ElevatedButton.icon(
-                  onPressed: generateNewQuote,
-                  icon: const Icon(
-                    Icons.refresh_rounded,
-                    size: 24,
-                  ),
-                  label: const Text(
-                    'New Quote',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF6C4DF6),
-                    foregroundColor: Colors.white,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 18),
-
-              const Text(
-                'Tap the button for inspiration',
-                style: TextStyle(
-                  color: Color(0xFF97919F),
-                  fontSize: 14,
-                ),
-              ),
-
-              const SizedBox(height: 10),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFFF8F6FF),
+              Color(0xFFEEE9FF),
             ],
+          ),
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24,
+              vertical: 20,
+            ),
+            child: Column(
+              children: [
+                const SizedBox(height: 16),
+
+                // App title
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.auto_awesome_rounded,
+                      color: Color(0xFF6C4DF6),
+                      size: 28,
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      'Quote of the Moment',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF27233A),
+                      ),
+                    ),
+                  ],
+                ),
+
+                const Spacer(),
+
+                // Quote card
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 28,
+                    vertical: 36,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(28),
+                    border: Border.all(
+                      color: const Color(0xFFECE7FF),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.07),
+                        blurRadius: 30,
+                        offset: const Offset(0, 12),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 66,
+                        height: 66,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFF0ECFF),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(
+                          Icons.format_quote_rounded,
+                          color: Color(0xFF6C4DF6),
+                          size: 38,
+                        ),
+                      ),
+
+                      const SizedBox(height: 28),
+
+                      // Quote animation
+                      AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 400),
+                        transitionBuilder: (child, animation) {
+                          return FadeTransition(
+                            opacity: animation,
+                            child: ScaleTransition(
+                              scale: Tween<double>(
+                                begin: 0.96,
+                                end: 1.0,
+                              ).animate(animation),
+                              child: child,
+                            ),
+                          );
+                        },
+                        child: Text(
+                          '"${currentQuote['quote']}"',
+                          key: ValueKey(currentQuoteIndex),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 24,
+                            height: 1.5,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF27233A),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 24),
+
+                      // Small divider
+                      Container(
+                        width: 42,
+                        height: 3,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF6C4DF6),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+
+                      const SizedBox(height: 18),
+
+                      AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 400),
+                        child: Text(
+                          '— ${currentQuote['author']}',
+                          key: ValueKey(
+                            '${currentQuoteIndex}_author',
+                          ),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
+                            fontStyle: FontStyle.italic,
+                            color: Color(0xFF777184),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                const Spacer(),
+
+                // New quote button
+                SizedBox(
+                  width: double.infinity,
+                  height: 58,
+                  child: ElevatedButton.icon(
+                    onPressed: generateNewQuote,
+                    icon: const Icon(
+                      Icons.shuffle_rounded,
+                      size: 23,
+                    ),
+                    label: const Text(
+                      'New Quote',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF6C4DF6),
+                      foregroundColor: Colors.white,
+                      elevation: 3,
+                      shadowColor:
+                          const Color(0xFF6C4DF6).withOpacity(0.35),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 18),
+
+                const Text(
+                  'Tap the button for a little inspiration ✨',
+                  style: TextStyle(
+                    color: Color(0xFF8D8797),
+                    fontSize: 14,
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+              ],
+            ),
           ),
         ),
       ),
